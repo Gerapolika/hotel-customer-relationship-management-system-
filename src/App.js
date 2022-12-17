@@ -1,20 +1,25 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Autorization from './pages/Authorization';
+import MainLayout from './pages/MainLayout'
 
 function App() {
-  
-  const rooms = useSelector(state => state.rooms.rooms);
-  const accounts = useSelector(state => state.accounts.accounts);
 
-  
-  useEffect(() => {
-    console.log(rooms, accounts)
-  }, [rooms, accounts])
 
   return (
-    <div className="App">
-    </div>
+    <Routes>
+
+      <Route index
+        element={<Autorization />}
+      />
+
+      <Route path='/mainLayout'
+        element={<MainLayout />}
+      />
+
+    </Routes>
+
   );
 }
 

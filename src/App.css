@@ -1,0 +1,30 @@
+.autorization {
+    margin: 25vh auto;
+    width: 35%;
+    background-color: #fffefe;
+    padding: 20px;
+}
+
+.autorizationButton {
+    width: 50%;
+}
+
+.autorizationHeader {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.ant-layout-header {
+    background-color: #45566e !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+.logo {
+    height: 64px;
+}
+
+.logOut-button {
+    background: none;
+    border: none;
+    color: #fffefe;
+}
