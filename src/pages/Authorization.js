@@ -3,7 +3,7 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-const Autorization: React.FС = () => {
+const Autorization = () => {
 
   const [logged, setLogged] = useState(false)
   const [errorMess, setErrorMes] = useState()
@@ -11,7 +11,7 @@ const Autorization: React.FС = () => {
 
   const accounts = useSelector(state => state.accounts.accounts);
 
-  const onFinish = (values: any) => {
+  const onFinish = (values) => {
     console.log('Success:', values);
     var keys = Object.keys(accounts)
     for (var i = 0; i < keys.length; i++) {
@@ -29,7 +29,7 @@ const Autorization: React.FС = () => {
     }
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
 
