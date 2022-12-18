@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import favicon from '../images/favicon.png'
 
 
-const MainLayout: React.FC = () => {
+const MainLayout = () => {
 
     const { Header, Content } = Layout;
 
