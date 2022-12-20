@@ -4,7 +4,8 @@ const roomsSlice = createSlice({
     name: 'rooms',
     initialState: {
         rooms: {},
-        error: ''
+        error: '',
+        guests: [],
     },
     reducers: {
         getDataRooms(state, action) {
@@ -17,10 +18,16 @@ const roomsSlice = createSlice({
                     guest: room.guest,
                     isCheckedIn: room.isCheckedIn,
                     number: room.number,
-                    occupancy: room.occupancy,
-                    price: room.price,
+                    occupancy: room.occupancy.toString(),
+                    price: room.price + '$',
                     type: room.type,
                 }
+            }),
+            action.payload.rooms.filter(room => room.guest.length > 0).map(room => {
+                state.guests.push({
+                    text: room.guest,
+                    value: room.guest,
+                })
             })
         },
         setErrorRooms(state, action) {

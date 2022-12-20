@@ -2,21 +2,26 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Autorization from './pages/Authorization';
-import MainLayout from './pages/MainLayout'
+import RoomsTablePage from './pages/RoomsTablePage'
+import SingleRoomPage from './pages/SingleRoomPage';
 
 function App() {
-
 
   return (
     <Routes>
 
-      <Route index
+      <Route path='/'
+        element={<RoomsTablePage /> }
+      />
+
+      <Route path='/login'
         element={<Autorization />}
       />
 
-      <Route path='/mainLayout'
-        element={<MainLayout />}
+      <Route path='/rooms/:roomId'
+        element={<SingleRoomPage/>}
       />
+
 
     </Routes>
 

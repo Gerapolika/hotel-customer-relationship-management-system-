@@ -4,7 +4,8 @@ const accountsSlice = createSlice({
     name: 'accounts',
     initialState: {
         accounts: {},
-        error: ''
+        error: '',
+        logged: false
     },
     reducers: {
         getDataAccounts(state, action) {
@@ -19,9 +20,12 @@ const accountsSlice = createSlice({
         setErrorAccounts(state, action) {
             state.error = action.payload.error
             console.log(state.error)
+        },
+        logIn(state, action) {
+            state.logged = action.payload
         }
     }
 })
 
-export const { getDataAccounts, setErrorAccounts } = accountsSlice.actions;
+export const { getDataAccounts, setErrorAccounts, logIn } = accountsSlice.actions;
 export default accountsSlice.reducer;

@@ -1,7 +1,19 @@
+.autorization-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
 .autorization {
-    margin: 25vh auto;
-    width: 35%;
+    width: 640px;
     background-color: #fffefe;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -168px 0 0 -320px;
     padding: 20px;
 }
 
@@ -11,20 +23,154 @@
 
 .autorizationHeader {
     font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 45px;
+}
+
+.remember-checkbox {
+    margin-top: 5px;
 }
 
 .ant-layout-header {
     background-color: #45566e !important;
     display: flex !important;
     justify-content: space-between !important;
-  }
+    height: 60px !important;
+}
 
 .logo {
-    height: 64px;
+    height: 60px;
+}
+
+.userInfoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    height: 44px;
 }
 
 .logOut-button {
     background: none;
     border: none;
     color: #fffefe;
+    margin: 20px 5px;
 }
+
+.table-button {
+    background-color: #4290f7;
+    color: #fff;
+    border-radius: 2px !important;
+    padding: 5px 15px !important;
+}
+
+.ant-table {
+    margin: 20px 50px !important;
+}
+
+.ant-checkbox-wrapper {
+    margin-left: 10px;
+}
+
+.ant-pagination-item,
+.ant-pagination-item-link {
+    background-color: #fff !important;
+    border: 1px solid #e5e2e2 !important;
+}
+
+.ant-pagination-item-active {
+    border: 1px solid #4290f7 !important;
+}
+
+.home-button {
+    display: flex;
+}
+
+.home-button h3 {
+    margin: 0;
+}
+
+.home-button img {
+    width: 15px;
+    margin: 5px 5px 5px 15px;
+}
+
+.roomContain {
+    margin: 0px 50px;
+}
+
+.mainInformation {
+    display: flex;
+}
+
+.roomData-h1 {
+    font-size: 25px !important;
+    text-decoration: solid underline 4px !important;
+}
+
+.roomData-h3 {
+    font-size: 10px !important;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.roomData-h3 p {
+    font-size: 10px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.checkIn-checkOut {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.check-button {
+    background-color: #4290f7;
+    color: #fff;
+    width: 100px;
+    height: 30px;
+    margin: 0px 10px;
+    border-radius: 2px !important;
+}
+
+.roomFeatures {
+    margin-top: 15px;
+    margin-left: 60px;
+}
+
+.features {
+    margin-top: 15px;
+}
+
+.roomFeatures h3, p {
+    font-size: 10px;
+}
+
+.feature-item {
+    display: flex;
+    align-items:baseline;
+    font-weight: 500;
+    line-height: 2;
+}
+
+.feature-item img {
+    height: 10px;
+    float:left;
+    margin: 5px 5px 0px 0px;
+}
+
+.description {
+    line-height: 2;
+    display: flex;
+    align-items: baseline;
+    margin: 0px 50px 20px 50px;
+}
+
+.description h3 {
+    width: 90px;
+    font-size: 10px;
+}
+

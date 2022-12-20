@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import { logIn } from '../store/accountsSlice';
 
-const Autorization: React.FС = () => {
+const Autorization = () => {
 
-  const [logged, setLogged] = useState(false)
   const [errorMess, setErrorMes] = useState()
   const [remember, setRemember] = useState(true)
 
   const accounts = useSelector(state => state.accounts.accounts);
+  const logged = useSelector(state => state.accounts.logged);
+  const dispatch = useDispatch();
 
-  const onFinish = (values: any) => {
+  const onFinish = (values) => {
     console.log('Success:', values);
     var keys = Object.keys(accounts)
     for (var i = 0; i < keys.length; i++) {
@@ -21,7 +23,7 @@ const Autorization: React.FС = () => {
           localStorage.setItem("username", values.username)
           localStorage.setItem("password", values.password)
         }
-        setLogged(true)
+        dispatch(logIn(true))
       }
     }
     if (logged === false) {
@@ -29,57 +31,61 @@ const Autorization: React.FС = () => {
     }
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
 
 
   return (
-    <section className='autorization'>
-      <h3 className='autorizationHeader'>Autentification</h3>
-      <Form
-        name="basic"
-        labelCol={{ span: 4 }}
-        wrapperCol={{ span: 20 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-        className='autorizationForm'
-      >
-        <Form.Item
-
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: 'Please input your username!' }]}
+    <div className='autorization-container'>
+      <section className='autorization'>
+        <h3 className='autorizationHeader'>Autentification</h3>
+        <Form
+          name="basic"
+          labelCol={{ span: 4 }}
+          wrapperCol={{ span: 20 }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+          className='autorizationForm'
         >
-          <Input />
-        </Form.Item>
+          <Form.Item
 
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: 'Please input your password!' }]}
-        >
-          <Input.Password />
-        </Form.Item>
+            label="Username"
+            name="username"
+            rules={[{ required: true, message: 'Please input your username!' }]}
+          >
+            <Input />
+          </Form.Item>
 
-        {errorMess}
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 0, span: 16 }}>
-          <Checkbox onClick={() => setRemember((prevRemember) => { return !prevRemember })}>Remember me</Checkbox>
-        </Form.Item>
+          {errorMess}
 
-        <Form.Item wrapperCol={{ offset: 8, span: 20 }}>
-          <Button type="primary" htmlType="submit" className='autorizationButton'>
-            Log in
-          </Button>
-        </Form.Item>
-      </Form>
+          <div className='remember-checkbox'>
+          <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 0, span: 16 }}>
+            <Checkbox onClick={() => setRemember((prevRemember) => { return !prevRemember })}>Remember me</Checkbox>
+          </Form.Item>
+          </div>
 
-      {logged && <Navigate to="/mainLayout" />}
+            <Form.Item wrapperCol={{ offset: 8, span: 20 }}>
+              <Button type="primary" htmlType="submit" className='autorizationButton'>
+                Log in
+              </Button>
+            </Form.Item>
+        </Form>
 
-    </section>
+        {logged && <Navigate to="/" />}
+
+      </section>
+    </div>
   );
 };
 
