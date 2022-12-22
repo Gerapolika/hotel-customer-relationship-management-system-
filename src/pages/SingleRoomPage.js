@@ -23,7 +23,7 @@ function SingleRoomPage() {
     return (
         <>
             <Layout className="layout">
-                {logged === false || "null" && <Navigate to="/login" />}
+                {logged === false || logged === "null" && <Navigate to="/login" />}
 
                 <Header />
 

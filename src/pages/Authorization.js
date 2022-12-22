@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 const Autorization = () => {
@@ -10,7 +10,6 @@ const Autorization = () => {
 
   const accounts = useSelector(state => state.accounts.accounts);
   const logged = localStorage.getItem("logged");
-  const dispatch = useDispatch();
 
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -25,7 +24,7 @@ const Autorization = () => {
         localStorage.setItem("logged", true)
       }
     }
-    if (logged === 'false' ||  "null") {
+    if (logged === 'false' || logged === "null") {
       setErrorMes("Invalid username or password")
     }
   };

@@ -20,6 +20,7 @@ const accountsSlice = createSlice({
             state.error = action.payload.error
             console.log(state.error)
         },
+    }
 })
 
 export const { getDataAccounts, setErrorAccounts } = accountsSlice.actions;
