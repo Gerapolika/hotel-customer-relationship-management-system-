@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Autorization = () => {
 
@@ -10,6 +10,9 @@ const Autorization = () => {
 
   const accounts = useSelector(state => state.accounts.accounts);
   const logged = localStorage.getItem("logged");
+
+  const navigate = useNavigate()
+
 
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -22,6 +25,7 @@ const Autorization = () => {
           localStorage.setItem("password", values.password)
         }
         localStorage.setItem("logged", true)
+        navigate("/")
       }
     }
     if (logged === 'false' || logged === "null") {
@@ -79,8 +83,6 @@ const Autorization = () => {
             </Button>
           </Form.Item>
         </Form>
-
-        {logged === 'true' && <Navigate to="/" />}
 
       </section>
     </div>
