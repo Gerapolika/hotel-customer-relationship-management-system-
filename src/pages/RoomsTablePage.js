@@ -131,8 +131,8 @@ const RoomsTablePage = () => {
 
     return (
         <Layout className="layout">
-            {logged === false || logged === null && <Navigate to="/login" />}
-
+            {logged === 'false' && <Navigate to="/login" />}
+            {logged === null && <Navigate to="/login" />}
             <Header />
 
             <Content>
