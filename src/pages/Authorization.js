@@ -10,7 +10,7 @@ const Autorization = () => {
   const [remember, setRemember] = useState(true)
 
   const accounts = useSelector(state => state.accounts.accounts);
-  const logged = useSelector(state => state.accounts.logged);
+  const logged = localStorage.getItem("logged");
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
@@ -23,10 +23,11 @@ const Autorization = () => {
           localStorage.setItem("username", values.username)
           localStorage.setItem("password", values.password)
         }
+        localStorage.setItem("logged", true)
         dispatch(logIn(true))
       }
     }
-    if (logged === false) {
+    if (logged === 'false') {
       setErrorMes("Invalid username or password")
     }
   };
@@ -42,7 +43,7 @@ const Autorization = () => {
         <h3 className='autorizationHeader'>Autentification</h3>
         <Form
           name="basic"
-          labelCol={{ span: 4 }}
+          labelCol={{ span: 5 }}
           wrapperCol={{ span: 20 }}
           initialValues={{ remember: true }}
           onFinish={onFinish}
@@ -56,7 +57,7 @@ const Autorization = () => {
             name="username"
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
-            <Input />
+            <Input size="small"/>
           </Form.Item>
 
           <Form.Item
@@ -64,25 +65,25 @@ const Autorization = () => {
             name="password"
             rules={[{ required: true, message: 'Please input your password!' }]}
           >
-            <Input.Password />
+            <Input.Password size="small"/>
           </Form.Item>
 
           {errorMess}
 
           <div className='remember-checkbox'>
-          <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 0, span: 16 }}>
-            <Checkbox onClick={() => setRemember((prevRemember) => { return !prevRemember })}>Remember me</Checkbox>
-          </Form.Item>
+            <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 0, span: 16 }}>
+              <Checkbox onClick={() => setRemember((prevRemember) => { return !prevRemember })}>Remember me</Checkbox>
+            </Form.Item>
           </div>
 
-            <Form.Item wrapperCol={{ offset: 8, span: 20 }}>
-              <Button type="primary" htmlType="submit" className='autorizationButton'>
-                Log in
-              </Button>
-            </Form.Item>
+          <Form.Item wrapperCol={{ offset: 9, span: 20 }}>
+            <Button type="primary" htmlType="submit" className='autorizationButton'>
+              Log in
+            </Button>
+          </Form.Item>
         </Form>
 
-        {logged && <Navigate to="/" />}
+        {logged === 'true' && <Navigate to="/" />}
 
       </section>
     </div>

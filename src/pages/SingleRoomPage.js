@@ -1,32 +1,29 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import Header from "../components/Header";
-import { Button, Space, Layout, Col, Row } from 'antd';
+import { Space, Layout, Col, Row } from 'antd';
 import home from "../images/home.png"
 import RoomCarousel from "../components/RoomCarousel"
 import check from '../images/check.png'
+import CheckOut from "../components/CheckOut";
+import CheckIn from "../components/CheckIn";
 
 
 function SingleRoomPage() {
 
-    const logged = useSelector(state => state.accounts.logged);
+    const logged = localStorage.getItem("logged");
 
     const rooms = useSelector(state => state.rooms.rooms)
 
     const location = useLocation()
     const roomId = location.pathname.replace('/rooms/', '')
 
-    const navigate = useNavigate()
-
-    const goBack = () => {
-        navigate(-1)
-    }
 
     return (
         <>
-            {logged === false && <Navigate to="/login" />}
             <Layout className="layout">
+                {logged === false && <Navigate to="/login" />}
 
                 <Header />
 
@@ -34,10 +31,11 @@ function SingleRoomPage() {
                     margin: 20,
                     display: 'flex'
                 }}>
-                    <Button type="link" className="home-button" onClick={goBack}>
+
+                    < Link to={`/`} className="home-button">
                         <img src={home} alt="home" />
                         <h3>Back home</h3>
-                    </Button>
+                    </Link>
                 </Space>
 
                 <Row gutter={[25, 8]} style={{
@@ -46,11 +44,11 @@ function SingleRoomPage() {
                     height: '500px',
                 }}>
 
-                    <Col span={12}>
+                    {Object.keys(rooms).length > 0 && <Col span={12}>
                         <RoomCarousel />
-                    </Col>
+                    </Col>}
 
-                    <Col span={5} >
+                    {Object.keys(rooms).length > 0 && <Col span={5} >
                         <h1 className="roomData-h1">Room {rooms[roomId].number}</h1>
                         <div className="roomData-h3">
                             <h3>Type :</h3><p>{rooms[roomId].type.charAt(0).toUpperCase()}{rooms[roomId].type.slice(1)}</p>
@@ -64,15 +62,14 @@ function SingleRoomPage() {
                         <div className="roomData-h3">
                             <h3>Guest :</h3><p>{rooms[roomId].guest}</p>
                         </div>
-                    </Col>
+                    </Col>}
 
-                    <Col span={7}>
+
+                    {Object.keys(rooms).length > 0 && <Col span={7}>
 
                         <Space className="checkIn-checkOut">
-                            <Button type="primary" className="check-button" disabled>Check In</Button>
-                            <Button type="primary" className="check-button" >
-                                Check Out
-                            </Button>
+                            <CheckIn />
+                            <CheckOut />
                         </Space>
 
                         <div className="roomFeatures">
@@ -86,12 +83,12 @@ function SingleRoomPage() {
                             </div>
                         </div>
 
-                    </Col>
+                    </Col>}
                 </Row>
 
-                    <div className="roomData-h3 description">
-                        <h3>Description:</h3><p>{rooms[roomId].description}</p>
-                    </div>
+                {Object.keys(rooms).length > 0 && <div className="roomData-h3 description">
+                    <h3>Description:</h3><p>{rooms[roomId].description}</p>
+                </div>}
 
 
             </Layout>

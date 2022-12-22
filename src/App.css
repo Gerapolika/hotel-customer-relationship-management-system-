@@ -8,24 +8,33 @@
 }
 
 .autorization {
-    width: 640px;
+    width: 500px;
     background-color: #fffefe;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -168px 0 0 -320px;
-    padding: 20px;
+    margin: -168px 0 0 -270px;
+    padding: 20px 20px 30px 20px;
 }
 
 .autorizationButton {
-    width: 50%;
+    width: 45%;
+    border-radius: 2px !important;
+    height: 25px !important;
+    font-size: 12px !important;
+    padding: 0 !important;
 }
+
 
 .autorizationHeader {
     font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 45px;
+    font-size: 12px;
+    margin: 0px 0px 30px 0px;
 }
 
+.ant-form-item {
+    margin: 10px !important;
+}
 .remember-checkbox {
     margin-top: 5px;
 }
@@ -34,11 +43,11 @@
     background-color: #45566e !important;
     display: flex !important;
     justify-content: space-between !important;
-    height: 60px !important;
+    height: 50px !important;
 }
 
 .logo {
-    height: 60px;
+    height: 50px;
 }
 
 .userInfoContainer {
@@ -47,7 +56,7 @@
 }
 
 .avatar {
-    height: 44px;
+    height: 35px;
 }
 
 .logOut-button {
@@ -57,15 +66,25 @@
     margin: 20px 5px;
 }
 
+.ant-table-thead .ant-table-cell {
+    padding: 10px 10px !important;
+}
+
+.ant-table-row {
+    padding: 15px !important;
+}
+
 .table-button {
     background-color: #4290f7;
     color: #fff;
+    height: 30px;
     border-radius: 2px !important;
     padding: 5px 15px !important;
+    font-size: 12px;
 }
 
 .ant-table {
-    margin: 20px 50px !important;
+    margin: 10px 50px !important;
 }
 
 .ant-checkbox-wrapper {
@@ -84,6 +103,7 @@
 
 .home-button {
     display: flex;
+    margin-left: 30px;
 }
 
 .home-button h3 {
@@ -105,18 +125,17 @@
 
 .roomData-h1 {
     font-size: 25px !important;
-    text-decoration: solid underline 4px !important;
+    text-decoration: solid underline 3px !important;
 }
 
 .roomData-h3 {
-    font-size: 10px !important;
+    font-size: 9px !important;
     display: flex;
     align-items: center;
     margin-top: 10px;
 }
 
 .roomData-h3 p {
-    font-size: 10px;
     font-weight: 600;
     margin-left: 10px;
 }
@@ -130,23 +149,35 @@
 .check-button {
     background-color: #4290f7;
     color: #fff;
-    width: 100px;
-    height: 30px;
-    margin: 0px 10px;
+    padding: 0px 12px;
+    height: 25px;
+    margin: 0px 5px;
     border-radius: 2px !important;
+    font-size: 12px;
+    font-weight: 500;
 }
+.cancel-button{
+    color: #000000;
+    padding: 0px 12px;
+    height: 30px;
+    border-radius: 2px !important;
+    font-weight: 700;
+    font-size: 12px;
+    height: 25px;
 
+}
 .roomFeatures {
-    margin-top: 15px;
-    margin-left: 60px;
+    margin-top: 20px;
+    margin-left: 50px;
 }
 
 .features {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .roomFeatures h3, p {
-    font-size: 10px;
+    font-size: 11px;
+    line-height: 17px !important;    
 }
 
 .feature-item {
@@ -174,3 +205,31 @@
     font-size: 10px;
 }
 
+.ant-modal-title {
+    font-weight: 700 !important;
+}
+
+.ant-modal-content {
+    padding: 10px !important;
+    border-radius: 2px !important;
+}
+
+.ant-modal-header {
+    margin: 10px 20px 40px 20px !important;
+}
+.ant-modal-body {
+    margin: 10px 20px 0px 20px !important;
+}
+
+.checkIn-titles label {
+    font-weight: 600;
+}
+
+.checOut-content {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.cneckIn-buttons {
+    margin: 0 !important;
+}

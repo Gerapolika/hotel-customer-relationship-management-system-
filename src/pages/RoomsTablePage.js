@@ -9,7 +9,8 @@ const RoomsTablePage = () => {
 
     const { Content } = Layout;
 
-    const logged = useSelector(state => state.accounts.logged);
+    const logged = localStorage.getItem("logged");
+    console.log(logged)
     const guests = useSelector(state => state.rooms.guests)
     const [data, setData] = useState([])
     const [checked, setChecked] = useState(false)
@@ -22,8 +23,8 @@ const RoomsTablePage = () => {
     useEffect(() => {
         setData(
             checked ? freeRooms : Object.values(rooms)
-        )
-    }, [checked])
+            )
+        }, [checked, rooms])
 
 
     const [filteredInfo, setFilteredInfo] = useState({});
@@ -130,7 +131,7 @@ const RoomsTablePage = () => {
 
     return (
         <Layout className="layout">
-            {logged === false && <Navigate to="/login" />}
+            {logged === 'false' && <Navigate to="/login" />}
 
             <Header />
 
@@ -138,7 +139,7 @@ const RoomsTablePage = () => {
 
                 <Space
                     style={{
-                        margin: "20px 50px",
+                        margin: "15px 50px",
                         display: 'flex'
                     }}
                 >

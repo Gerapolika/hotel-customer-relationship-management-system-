@@ -5,7 +5,6 @@ const accountsSlice = createSlice({
     initialState: {
         accounts: {},
         error: '',
-        logged: false
     },
     reducers: {
         getDataAccounts(state, action) {
