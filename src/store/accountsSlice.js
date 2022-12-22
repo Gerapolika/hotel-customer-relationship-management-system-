@@ -20,11 +20,7 @@ const accountsSlice = createSlice({
             state.error = action.payload.error
             console.log(state.error)
         },
-        logIn(state, action) {
-            state.logged = action.payload
-        }
-    }
 })
 
-export const { getDataAccounts, setErrorAccounts, logIn } = accountsSlice.actions;
+export const { getDataAccounts, setErrorAccounts } = accountsSlice.actions;
 export default accountsSlice.reducer;
