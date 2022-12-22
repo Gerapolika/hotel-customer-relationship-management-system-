@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Autorization = () => {
 
@@ -12,7 +12,6 @@ const Autorization = () => {
   const logged = localStorage.getItem("logged");
 
   const navigate = useNavigate()
-
 
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -40,6 +39,7 @@ const Autorization = () => {
 
   return (
     <div className='autorization-container'>
+      {logged === 'true' && <Navigate to="/" />}
       <section className='autorization'>
         <h3 className='autorizationHeader'>Autentification</h3>
         <Form
