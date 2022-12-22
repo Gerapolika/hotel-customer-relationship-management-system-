@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { logIn } from '../store/accountsSlice';
 
 const Autorization = () => {
 
@@ -24,10 +23,9 @@ const Autorization = () => {
           localStorage.setItem("password", values.password)
         }
         localStorage.setItem("logged", true)
-        dispatch(logIn(true))
       }
     }
-    if (logged === 'false') {
+    if (logged === 'false' ||  "null") {
       setErrorMes("Invalid username or password")
     }
   };
