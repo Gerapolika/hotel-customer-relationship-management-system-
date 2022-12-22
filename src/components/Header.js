@@ -23,7 +23,7 @@ function Header() {
     useEffect(() =>{
         const username = localStorage.getItem('username')
         setAvatarUrl(
-            Object.keys(accounts).length > 0 ? accounts[username].image : '/'
+            Object.keys(accounts).length > 0 ? username !== "null" ? accounts[username].image : '/'  : '/'
         )
     }, [accounts])
 
