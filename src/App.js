@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Autorization from './pages/Authorization';
+import RoomsTablePage from './pages/RoomsTablePage'
+import SingleRoomPage from './pages/SingleRoomPage';
 
 function App() {
-  
-  const rooms = useSelector(state => state.rooms.rooms);
-  const accounts = useSelector(state => state.accounts.accounts);
-
-  
-  useEffect(() => {
-    console.log(rooms, accounts)
-  }, [rooms, accounts])
 
   return (
-    <div className="App">
-    </div>
+    <Routes>
+
+      <Route path='/'
+        element={<RoomsTablePage /> }
+      />
+
+      <Route path='/login'
+        element={<Autorization />}
+      />
+
+      <Route path='/rooms/:roomId'
+        element={<SingleRoomPage/>}
+      />
+
+
+    </Routes>
+
   );
 }
 

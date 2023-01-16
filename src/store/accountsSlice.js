@@ -4,7 +4,7 @@ const accountsSlice = createSlice({
     name: 'accounts',
     initialState: {
         accounts: {},
-        error: ''
+        error: '',
     },
     reducers: {
         getDataAccounts(state, action) {
@@ -19,7 +19,7 @@ const accountsSlice = createSlice({
         setErrorAccounts(state, action) {
             state.error = action.payload.error
             console.log(state.error)
-        }
+        },
     }
 })
 
